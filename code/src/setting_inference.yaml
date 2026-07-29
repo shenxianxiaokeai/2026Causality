@@ -1,0 +1,51 @@
+# =========================
+# Basic runtime settings
+# =========================
+rseed: 0
+device: 'cuda'
+
+# =========================
+# Community structure settings
+# =========================
+K: 42   # 命令行 -K 优先
+
+# =========================
+# Optimization settings
+# =========================
+# 扩散-谱恢复版基本不靠梯度迭代，这些参数只为兼容保留
+num_iter: 1
+learning_rate: 0.0005
+tolerance: 1.0e-8
+verbose: true
+N_seeds: 1
+
+# =========================
+# Reconstruction regularization
+# =========================
+# 这些仍然用于从 Q 反推 B / Delta 后的 loss 评估
+lambda1: 1e-3
+lambda2: 1e-2
+
+# 兼容保留
+use_variation: true
+use_center_loss: true
+use_sparse_loss: true
+omega_mode: 'uniform'
+
+# =========================
+# Diffusion-spectral recovery settings
+# =========================
+diffusion_alpha: 0.15   # PPR 风格扩散参数，先用 0.15
+
+obs_weight: 0.4         # obs / corrected 融合权重，先 0.5
+use_ipw_view: true      # 是否使用第二层 corrected
+embedding_norm: true    # 谱嵌入后是否行归一化
+kmeans_n_init: 5       # kmeans 重启次数
+
+# =========================
+# Output settings
+# =========================
+save_shared_adj: true
+save_delta: true
+save_Q: true
+save_B: true

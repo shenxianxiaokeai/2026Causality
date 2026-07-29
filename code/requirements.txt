@@ -1,0 +1,11 @@
+numpy==1.22.0
+torch
+functorch
+scikit-learn
+scikit-tensor-py3
+scipy==1.10.0
+PyYAML
+matplotlib
+POT
+
+
